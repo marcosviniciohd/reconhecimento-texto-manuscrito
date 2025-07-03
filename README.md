@@ -214,8 +214,7 @@ A: Consulte as mensagens do terminal e verifique se todas as dependências estã
 
 Projeto desenvolvido por alunos do curso de Ciência da Computação do IFTM.
 
-- Integrantes: [Marcos Vinício Fernandes], [Erik Alves Vilar], [Matuzalem Pereira Correira], [Olavo Dias Nunes] e [William Rezende Alves]
-- Orientador: [Clarimundo Machado Moraes Júnior]
-- Contato: [e-mail ou GitHub do grupo]
+- Integrantes: Marcos Vinício Fernandes, Erik Alves Vilar, Matuzalem Pereira Correira, Olavo Dias Nunes e William Rezende Alves
+- Orientador: Clarimundo Machado Moraes Júnior
 
 ---
