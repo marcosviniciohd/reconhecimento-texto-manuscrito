@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+*.log
+*.tmp
+*.swp
+
+# VSCode
+.vscode/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Dados e resultados
+/data/
+*.h5
+*.hdf5
+*.keras
+*.ckpt
+*.weights
+*.npz
+*.npy
+
+# Ambiente virtual
+.venv/
+venv/
+ENV/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Outros
+*.bak
+*.old
+*.orig
+*.pdf
+*.zip
+*.tar.gz
+*.tar
+*.rar
+*.7z
+*.csv
+*.xlsx
+*.xls
+*.db
+*.sqlite
+*.sqlite3
+*.iml
+.idea/
