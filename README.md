@@ -12,21 +12,23 @@
 
 ## 📑 Sumário
 
-- [Descrição do Projeto](#descrição-do-projeto)
-- [Requisitos de Ambiente](#requisitos-de-ambiente)
-- [Como criar um ambiente virtual com Python 3.10](#como-criar-um-ambiente-virtual-com-python-310)
-- [Instalação das Dependências](#instalação-das-dependências)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Estrutura Recomendada de Pastas para o Dataset](#estrutura-recomendada-de-pastas-para-o-dataset)
-- [Exemplos de Caminhos para Imagens](#exemplos-de-caminhos-para-imagens)
-- [Como Modificar o Código para Usar Imagens Reais](#como-modificar-o-código-para-usar-imagens-reais)
-- [Listar Arquivos do Dataset no Notebook (Exemplo)](#listar-arquivos-do-dataset-no-notebook-exemplo)
-- [Dicas Importantes](#dicas-importantes)
-- [Passos para Rodar o Projeto](#passos-para-rodar-o-projeto)
-- [Funcionalidades Implementadas](#funcionalidades-implementadas)
-- [Próximos Passos Sugeridos](#próximos-passos-sugeridos)
-- [FAQ - Problemas Comuns](#faq---problemas-comuns)
-- [Sobre o Grupo](#sobre-o-grupo)
+- [Verificação de Assinaturas Manuscritas com Redes Neurais Siamesas](#verificação-de-assinaturas-manuscritas-com-redes-neurais-siamesas)
+  - [📑 Sumário](#-sumário)
+  - [Descrição do Projeto](#descrição-do-projeto)
+  - [Requisitos de Ambiente](#requisitos-de-ambiente)
+  - [Como criar um ambiente virtual com Python 3.10](#como-criar-um-ambiente-virtual-com-python-310)
+  - [Instalação das Dependências](#instalação-das-dependências)
+  - [Estrutura do Projeto](#estrutura-do-projeto)
+  - [Estrutura Recomendada de Pastas para o Dataset](#estrutura-recomendada-de-pastas-para-o-dataset)
+  - [Exemplos de Caminhos para Imagens](#exemplos-de-caminhos-para-imagens)
+  - [Como Modificar o Código para Usar Imagens Reais](#como-modificar-o-código-para-usar-imagens-reais)
+  - [Listar Arquivos do Dataset no Notebook (Exemplo)](#listar-arquivos-do-dataset-no-notebook-exemplo)
+  - [Dicas Importantes](#dicas-importantes)
+  - [Passos para Rodar o Projeto](#passos-para-rodar-o-projeto)
+  - [Funcionalidades Implementadas](#funcionalidades-implementadas)
+  - [Próximos Passos Sugeridos](#próximos-passos-sugeridos)
+  - [FAQ - Problemas Comuns](#faq---problemas-comuns)
+  - [Sobre o Grupo](#sobre-o-grupo)
 
 
 ## Descrição do Projeto
@@ -212,8 +214,8 @@ A: Consulte as mensagens do terminal e verifique se todas as dependências estã
 
 Projeto desenvolvido por alunos do curso de Ciência da Computação do IFTM.
 
-- Integrantes: [NOME1], [NOME2], [NOME3], [NOME4] <!-- Substitua pelos nomes reais -->
-- Orientador: [Nome do Professor]
+- Integrantes: [Marcos Vinício Fernandes], [Erik Alves Vilar], [Matuzalem Pereira Correira], [Olavo Dias Nunes] e [William Rezende Alves]
+- Orientador: [Clarimundo Machado Moraes Júnior]
 - Contato: [e-mail ou GitHub do grupo]
 
 ---
