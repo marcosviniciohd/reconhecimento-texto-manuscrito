@@ -3,6 +3,7 @@ import streamlit as st
 import numpy as np
 import tensorflow as tf
 from data_preprocessing import preprocess_image
+from model import euclidean_distance
 
 st.set_page_config(page_title="Verificação de Assinaturas", layout="centered")
 st.title("Verificação de Assinaturas Manuscritas")
@@ -10,9 +11,12 @@ st.write("Compare duas imagens de assinaturas e descubra se pertencem à mesma p
 
 @st.cache_resource
 def load_model(path):
-    return tf.keras.models.load_model(path, compile=False)
+    return tf.keras.models.load_model(path, custom_objects={'euclidean_distance': euclidean_distance}, compile=False)
 
-model = load_model("siamese_signature_model.h5")
+# Caminho correto para o modelo (está no diretório pai)
+import os
+model_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "siamese_signature_model.h5")
+model = load_model(model_path)
 
 uploaded_file1 = st.file_uploader("Selecione a primeira assinatura", type=["png", "jpg", "jpeg", "bmp"], key="file1")
 uploaded_file2 = st.file_uploader("Selecione a segunda assinatura", type=["png", "jpg", "jpeg", "bmp"], key="file2")
