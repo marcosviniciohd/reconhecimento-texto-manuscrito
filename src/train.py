@@ -42,7 +42,7 @@ def create_pairs(images, labels):
         pair_labels.append(0)
     return np.array(pairs_a), np.array(pairs_b), np.array(pair_labels)
 
-# Exemplo de carregamento de dados (ajuste para seu dataset)
+# Carregamento de dados do dataset
 def load_dataset(data_dir):
     '''
     Carrega imagens e rótulos do diretório de dados.
@@ -65,7 +65,7 @@ def load_dataset(data_dir):
 
 if __name__ == "__main__":
     # Carregar dataset
-    data_dir = "data"  # ajuste se necessário
+    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")  # ajuste se necessário
     images, labels = load_dataset(data_dir)
     print(f"Total de imagens: {len(images)}")
     # Garante que as imagens tenham shape (N, 155, 220, 1)

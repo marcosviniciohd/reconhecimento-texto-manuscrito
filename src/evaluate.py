@@ -3,12 +3,12 @@ import numpy as np
 import tensorflow as tf
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 from data_preprocessing import preprocess_image
-from model import build_siamese_network
+from model import build_siamese_network, euclidean_distance
 
 # Parâmetros
 INPUT_SHAPE = (155, 220, 1)
 
-# Função para carregar pares de teste (ajuste conforme seu dataset)
+# Função para carregar pares de teste para avaliação
 def load_test_pairs(test_dir):
     '''
     Carrega pares de imagens de teste e rótulos.
@@ -55,11 +55,12 @@ def load_test_pairs(test_dir):
 
 if __name__ == "__main__":
     # Carregar pares de teste
-    test_dir = "../data"  # ajuste se necessário
+    test_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")  # ajuste se necessário
     X_a, X_b, y_true = load_test_pairs(test_dir)
     print(f"Total de pares de teste: {len(y_true)}")
     # Carregar modelo treinado
-    model = tf.keras.models.load_model("siamese_signature_model.h5", compile=False)
+    model_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "siamese_signature_model.h5")
+    model = tf.keras.models.load_model(model_path, custom_objects={'euclidean_distance': euclidean_distance}, compile=False)
     # Prever distâncias
     y_pred_dist = model.predict([X_a, X_b])
     # Definir limiar para decisão (ajuste conforme necessário)
