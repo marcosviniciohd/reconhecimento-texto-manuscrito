@@ -1,219 +1,413 @@
+# 🖋️ Sistema de Reconhecimento de Assinaturas Manuscritas
 
+Sistema inteligente para verificação e comparação de assinaturas manuscritas utilizando **Redes Neurais Siamesas** com TensorFlow/Keras.
 
-# Verificação de Assinaturas Manuscritas com Redes Neurais Siamesas
+## 📋 **Índice**
 
-<p align="center">
-  <img src="https://img.shields.io/badge/python-3.10%20%7C%203.11-blue" alt="Python Version">
-  <img src="https://img.shields.io/badge/tensorflow-%3C2.16-important" alt="TensorFlow Version">
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
-</p>
-
----
-
-## 📑 Sumário
-
-- [Descrição do Projeto](#descrição-do-projeto)
-- [Requisitos de Ambiente](#requisitos-de-ambiente)
-- [Como criar um ambiente virtual com Python 3.10](#como-criar-um-ambiente-virtual-com-python-310)
-- [Instalação das Dependências](#instalação-das-dependências)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Estrutura Recomendada de Pastas para o Dataset](#estrutura-recomendada-de-pastas-para-o-dataset)
-- [Exemplos de Caminhos para Imagens](#exemplos-de-caminhos-para-imagens)
-- [Como Modificar o Código para Usar Imagens Reais](#como-modificar-o-código-para-usar-imagens-reais)
-- [Listar Arquivos do Dataset no Notebook (Exemplo)](#listar-arquivos-do-dataset-no-notebook-exemplo)
-- [Dicas Importantes](#dicas-importantes)
-- [Passos para Rodar o Projeto](#passos-para-rodar-o-projeto)
-- [Funcionalidades Implementadas](#funcionalidades-implementadas)
-- [Próximos Passos Sugeridos](#próximos-passos-sugeridos)
-- [FAQ - Problemas Comuns](#faq---problemas-comuns)
-- [Sobre o Grupo](#sobre-o-grupo)
-
-
-## Descrição do Projeto
-
-Este projeto acadêmico tem como objetivo desenvolver uma aplicação de Deep Learning para verificar a autenticidade de assinaturas manuscritas. O sistema será capaz de comparar duas imagens de assinaturas e determinar se elas pertencem à mesma pessoa, utilizando **Redes Neurais Siamesas (Siamese Neural Networks)**.
+- [🎯 Sobre o Projeto](#-sobre-o-projeto)
+- [✨ Funcionalidades](#-funcionalidades)
+- [🛠️ Tecnologias](#%EF%B8%8F-tecnologias)
+- [📦 Instalação](#-instalação)
+- [🚀 Como Usar](#-como-usar)
+- [📊 Performance](#-performance)
+- [📱 Teste com Telefone](#-teste-com-telefone)
+- [🔧 Treinamento](#-treinamento)
+- [📁 Estrutura do Projeto](#-estrutura-do-projeto)
+- [🤝 Contribuição](#-contribuição)
 
 ---
 
-## Requisitos de Ambiente
+## 🎯 **Sobre o Projeto**
 
-- **Python 3.10 ou 3.11 (64 bits)**
-  - O TensorFlow não é compatível com Python 3.12 ou superior.
-  - Baixe em: https://www.python.org/downloads/release/python-3100/
+Este sistema foi desenvolvido para **verificar a autenticidade de assinaturas manuscritas** utilizando técnicas de Deep Learning. O projeto implementa uma arquitetura de **Rede Neural Siamesa** que aprende a distinguir entre assinaturas da mesma pessoa e de pessoas diferentes.
 
-## Como criar um ambiente virtual com Python 3.10
+### **Principais Características:**
+- ✅ **Foco em assinaturas manuscritas reais**
+- ✅ **Interface web intuitiva** (Streamlit)
+- ✅ **Threshold otimizado automaticamente**
+- ✅ **Pipeline completo de treinamento**
+- ✅ **Suporte para fotos capturadas por telefone**
 
-1. Instale o Python 3.10 e adicione ao PATH durante a instalação.
-2. No terminal, navegue até a pasta do projeto e execute:
-   ```bash
-   python -m venv .venv
-   ```
-   Ou especifique o caminho completo do Python 3.10, se necessário:
-   ```bash
-   "C:/Users/SeuUsuario/AppData/Local/Programs/Python/Python310/python.exe" -m venv .venv
-   ```
-3. Ative o ambiente virtual:
-   - No Bash:
-     ```bash
-     source .venv/Scripts/activate
-     ```
-   - No Prompt de Comando:
-     ```cmd
-     .venv\Scripts\activate
-     ```
-   - No PowerShell:
-     ```powershell
-     .venv\Scripts\Activate.ps1
-     ```
+---
 
-## Instalação das Dependências
+## ✨ **Funcionalidades**
 
-Com o ambiente virtual ativado, execute:
+### **🔍 Verificação de Assinaturas**
+- Comparação entre duas assinaturas
+- Resultado com nível de confiança
+- Interpretação automática dos resultados
+
+### **📱 Teste com Telefone**
+- Interface especializada para fotos de telefone
+- Melhoria automática de qualidade da imagem
+- Comparação contra base de assinaturas registradas
+
+### **📊 Métricas Detalhadas**
+- Distância euclidiana entre assinaturas
+- Percentual de compatibilidade
+- Recomendações baseadas em confiança
+
+---
+
+## 🛠️ **Tecnologias**
+
+- **Python 3.8+**
+- **TensorFlow/Keras** - Rede Neural Siamesa
+- **OpenCV** - Processamento de imagens
+- **Streamlit** - Interface web
+- **NumPy** - Computação científica
+- **Pillow** - Manipulação de imagens
+- **Matplotlib** - Visualização de dados
+
+---
+
+## 📦 **Instalação**
+
+### **1. Clone o Repositório**
+```bash
+git clone https://github.com/marcosviniciohd/reconhecimento-texto-manuscrito.git
+cd reconhecimento-texto-manuscrito
+```
+
+### **2. Crie um Ambiente Virtual**
+```bash
+python -m venv .venv
+
+# Windows
+.venv\Scripts\activate
+
+# Linux/Mac
+source .venv/bin/activate
+```
+
+### **3. Instale as Dependências**
 ```bash
 pip install -r requirements.txt
 ```
-Se for usar a interface gráfica, instale também o Streamlit (caso não esteja no requirements):
+
+### **4. Verifique a Instalação**
 ```bash
-pip install streamlit
+python -c "import tensorflow as tf; print('TensorFlow:', tf.__version__)"
 ```
 
 ---
 
-## Estrutura do Projeto
+## 🚀 **Como Usar**
 
-O projeto está organizado da seguinte forma:
+### **🌐 Interface Principal (Recomendado)**
 
-- **/data**: Diretório para armazenar o dataset de assinaturas.
-- **/src**: Código-fonte da aplicação.
-  - `data_preprocessing.py`: Funções para pré-processamento das imagens.
-  - `model.py`: Definição da arquitetura da Rede Neural Siamesa.
-  - `train.py`: Script para treinar o modelo.
-  - `evaluate.py`: Script para avaliar o modelo treinado.
-  - `app.py`: Interface gráfica para testar o modelo.
-- `requirements.txt`: Lista de dependências Python do projeto.
-- `notebooks/`: Jupyter Notebooks para exploração de dados e apresentação dos resultados.
+```bash
+streamlit run app.py
+```
+
+- **URL**: http://localhost:8502
+- **Funcionalidades**: Upload de 2 assinaturas e comparação
+- **Status**: ✅ Funcionando com threshold otimizado (0.1000)
+
+### **📱 Interface para Telefone**
+
+```bash
+streamlit run app_teste_telefone.py
+```
+
+- **Uso**: Teste de assinaturas capturadas por telefone
+- **Features**: Melhoria automática de qualidade, comparação múltipla
+- **Guia**: Consulte `GUIA_TESTE_TELEFONE.md` para instruções detalhadas
 
 ---
 
-## Estrutura Recomendada de Pastas para o Dataset
+## 📊 **Performance**
+
+### **🎯 Métricas Atuais**
+- **Threshold Otimizado**: 0.1000
+- **Acurácia**: 64.7%
+- **Dataset**: 30 imagens de 15 pessoas
+- **Precisão (Mesma Pessoa)**: 10%
+- **Recall (Mesma Pessoa)**: 60%
+- **F1-Score**: 16.7%
+
+### **📈 Análise de Distâncias**
+- **Mesma pessoa**: Média 0.1175 ± 0.0580
+- **Pessoas diferentes**: Média 0.1539 ± 0.0930
+- **Separação**: Boa distinção entre classes
+
+---
+
+## 📱 **Teste com Telefone**
+
+### **📸 Boas Práticas para Captura**
+- ✅ **Iluminação**: Use luz natural ou boa iluminação artificial
+- ✅ **Fundo**: Papel branco/claro, sem texturas
+- ✅ **Ângulo**: Câmera paralela ao papel (90°)
+- ✅ **Distância**: Assinatura ocupa 60-80% da foto
+- ✅ **Foco**: Aguarde o foco automático
+- ✅ **Estabilidade**: Use as duas mãos
+
+### **❌ O que Evitar**
+- ❌ Sombras e reflexos
+- ❌ Fotografar de lado (inclinado)
+- ❌ Usar zoom digital
+- ❌ Fotografar em movimento
+
+---
+
+## 🔧 **Treinamento**
+
+### **📊 Pipeline Completo**
+
+#### **1. Preparar Dataset**
+```bash
+python scripts/preparar_dataset.py
+```
+- **Função**: Aplica data augmentation (rotação, escala, ruído)
+- **Output**: Dataset expandido para treinamento
+- **Tempo**: ~2-5 minutos
+
+#### **2. Treinar Modelo**
+```bash
+python scripts/treinar_modelo.py
+```
+- **Função**: Treina a Rede Neural Siamesa
+- **Features**: Early stopping, checkpoint automático
+- **Tempo**: ~10-30 minutos (dependendo do dataset)
+- **Output**: `modelos/modelo_assinaturas_manuscritas.h5`
+
+#### **3. Avaliar e Calibrar**
+```bash
+python scripts/avaliar_modelo.py
+```
+- **Função**: Encontra o threshold ótimo
+- **Processo**: Testa múltiplos thresholds e escolhe o melhor
+- **Output**: `resultados_avaliacao/threshold_otimo.txt`
+
+#### **4. Analisar Dados**
+```bash
+python scripts/analisar_dados.py
+```
+- **Função**: Relatório detalhado sobre o dataset
+- **Informações**: Qualidade dos dados, distribuição, recomendações
+
+### **🎯 Workflow Recomendado**
+```bash
+# Pipeline completo para novo treinamento
+python scripts/preparar_dataset.py
+python scripts/treinar_modelo.py
+python scripts/avaliar_modelo.py
+
+# Testar o sistema
+streamlit run app.py
+```
+
+---
+
+## 📁 **Estrutura do Projeto**
 
 ```
-data/
-  ├── autor1/
-  │     ├── assinatura1.png
-  │     ├── assinatura2.png
-  │     └── ...
-  ├── autor2/
-  │     ├── assinatura1.png
-  │     └── ...
-  └── ...
+reconhecimento-texto-manuscrito/
+├── 📂 scripts/                          # Scripts de treinamento
+│   ├── 🔧 preparar_dataset.py          # Data augmentation
+│   ├── 🧠 treinar_modelo.py            # Treinamento da rede
+│   ├── 📊 avaliar_modelo.py            # Calibração de threshold
+│   └── 📋 analisar_dados.py            # Análise do dataset
+├── 📂 assinaturas_reais/               # Dataset de assinaturas
+│   ├── 📁 pessoa1/                     # 2 assinaturas por pessoa
+│   ├── 📁 pessoa2/
+│   └── 📁 ...
+├── 📂 modelos/                         # Modelos treinados
+│   └── 🤖 modelo_assinaturas_manuscritas.h5
+├── 📂 resultados_avaliacao/            # Resultados de avaliação
+│   └── 📈 threshold_otimo.txt
+├── 🌐 app.py                           # Interface principal
+├── 📱 app_teste_telefone.py            # Interface para telefone
+├── 📋 requirements.txt                 # Dependências
+├── 📖 README.md                        # Este arquivo
+├── 📱 GUIA_TESTE_TELEFONE.md           # Guia para testes com telefone
+└── 🎯 PROJETO_FINALIZADO.md            # Documentação técnica
 ```
 
-## Exemplos de Caminhos para Imagens
+---
 
-- data/autor1/assinatura1.png
-- data/autor2/assinatura2.jpg
+## 🎛️ **Configurações**
 
-## Como Modificar o Código para Usar Imagens Reais
+### **Threshold Personalizado**
+Para ajustar a sensibilidade do sistema:
 
-No notebook ou nos scripts, altere as variáveis de caminho, por exemplo:
 ```python
-data_dir = 'data'
-img_path1 = os.path.join(data_dir, 'autor1', 'assinatura1.png')
-img_path2 = os.path.join(data_dir, 'autor2', 'assinatura2.png')
+# Em app.py, linha ~54
+self.threshold = 0.10  # Padrão otimizado
+
+# Mais rigoroso (menos falsos positivos)
+self.threshold = 0.05
+
+# Mais flexível (menos falsos negativos)  
+self.threshold = 0.15
 ```
 
-## Listar Arquivos do Dataset no Notebook (Exemplo)
-
+### **Parâmetros de Treinamento**
 ```python
-import os
-for autor in os.listdir('data'):
-    print(f"Autor: {autor}")
-    for img in os.listdir(os.path.join('data', autor)):
-        print(f"  - {img}")
+# Em scripts/treinar_modelo.py
+EPOCHS = 100
+BATCH_SIZE = 32
+LEARNING_RATE = 0.001
+EARLY_STOPPING_PATIENCE = 10
 ```
 
-## Dicas Importantes
-
-- As imagens podem ser coloridas, mas o código faz a conversão automática para tons de cinza.
-- Se necessário, ajuste o pré-processamento (tamanho, binarização) em `src/data_preprocessing.py` ou no notebook.
-- Certifique-se de que os nomes das pastas e arquivos não tenham espaços ou caracteres especiais.
-- O modelo treinado deve estar em `src/siamese_signature_model.h5` para uso na interface.
-
 ---
 
-## Passos para Rodar o Projeto
+## 📚 **Exemplos de Uso**
 
-1. **Instale as dependências** (veja acima).
-2. **Treine o modelo** (se ainda não existe o arquivo `siamese_signature_model.h5`):
-   ```bash
-   python src/train.py
-   ```
-3. **Execute a interface gráfica para comparar assinaturas:**
-   ```bash
-   streamlit run src/app.py
-   ```
-4. O navegador será aberto automaticamente. Siga os passos na tela:
-   - Faça upload da primeira imagem de assinatura.
-   - Faça upload da segunda imagem de assinatura.
-   - O sistema irá mostrar as imagens, a distância calculada e o resultado (compatíveis ou diferentes).
+### **💻 Uso Programático**
+```python
+import tensorflow as tf
+from PIL import Image
+import numpy as np
 
----
+# Carregar modelo
+model = tf.keras.models.load_model(
+    'modelos/modelo_assinaturas_manuscritas.h5',
+    custom_objects={
+        'euclidean_distance': euclidean_distance,
+        'contrastive_loss': contrastive_loss
+    }
+)
 
-## Funcionalidades Implementadas
+# Preprocessar imagens
+img1 = preprocess_image('assinatura1.png')
+img2 = preprocess_image('assinatura2.png')
 
-- Pré-processamento de imagens: conversão para escala de cinza, binarização, redimensionamento e normalização.
-- Criação de pares de imagens (genuína/genuína e genuína/falsa) para treinamento.
-- Arquitetura de Rede Neural Siamesa baseada em CNN.
-- Função de custo Contrastive Loss para aprendizado de similaridade.
-- Treinamento do modelo e salvamento do modelo treinado.
-- Avaliação do modelo com métricas: acurácia, precisão, recall, F1-score e matriz de confusão.
-- Interface gráfica para teste de assinaturas (Streamlit).
-- Notebooks para apresentação dos resultados e explicação detalhada do código.
+# Fazer predição
+distance = model.predict([img1, img2])[0][0]
+is_same_person = distance <= 0.10
 
----
-
-## Próximos Passos Sugeridos
-
-- Adicionar exemplos de uso com datasets reais no notebook.
-- Preparar slides e divisão de tópicos para apresentação igualitária entre os membros do grupo.
-
----
-
-## FAQ - Problemas Comuns
-
-**Q: Recebo erro de versão do TensorFlow ou Python ao instalar as dependências.**
-
-A: Certifique-se de estar usando Python 3.10 ou 3.11 (64 bits). O TensorFlow não suporta Python 3.12+. Veja a seção [Requisitos de Ambiente](#requisitos-de-ambiente).
-
-**Q: Não consigo ativar o ambiente virtual no Windows.**
-
-A: Se aparecer erro de permissão, execute o PowerShell como administrador e rode:
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+print(f"Distância: {distance:.4f}")
+print(f"Mesma pessoa: {'Sim' if is_same_person else 'Não'}")
 ```
-Depois tente ativar novamente.
 
-**Q: O navegador não abre automaticamente ao rodar o Streamlit.**
-
-A: Acesse manualmente http://localhost:8501 no navegador.
-
-**Q: O modelo treinado não é encontrado ao abrir a interface.**
-
-A: Certifique-se de ter rodado o treinamento (`python src/train.py`) e que o arquivo `src/siamese_signature_model.h5` existe.
-
-**Q: Outros erros?**
-
-A: Consulte as mensagens do terminal e verifique se todas as dependências estão instaladas corretamente.
+### **🌐 Via Interface Web**
+1. Acesse http://localhost:8502
+2. Faça upload de 2 assinaturas
+3. Clique em "Comparar Assinaturas"
+4. Visualize o resultado e confiança
 
 ---
 
-## Sobre o Grupo
+## 🔍 **Interpretação dos Resultados**
 
-Projeto desenvolvido por alunos do curso de Ciência da Computação do IFTM.
+### **📊 Níveis de Confiança**
+- **Alta Confiança (≤0.05)**: Resultado muito confiável
+- **Moderada (0.05-0.15)**: Considere verificação adicional
+- **Baixa (>0.15)**: Recomenda análise manual
 
-- Integrantes: [NOME1], [NOME2], [NOME3], [NOME4] <!-- Substitua pelos nomes reais -->
-- Orientador: [Nome do Professor]
-- Contato: [e-mail ou GitHub do grupo]
+### **✅ Status de Compatibilidade**
+- **✅ MATCH**: Distância ≤ 0.10 (provavelmente mesma pessoa)
+- **❌ NÃO MATCH**: Distância > 0.10 (provavelmente pessoas diferentes)
 
 ---
+
+## 🚨 **Solução de Problemas**
+
+### **Erro de Importação TensorFlow**
+```bash
+pip install --upgrade tensorflow
+# ou para GPU
+pip install tensorflow-gpu
+```
+
+### **Erro de OpenCV**
+```bash
+pip install opencv-python-headless
+```
+
+### **Streamlit não abre**
+```bash
+# Verificar porta
+streamlit run app.py --server.port 8503
+
+# Verificar firewall
+streamlit run app.py --server.address 0.0.0.0
+```
+
+### **Modelo não carrega**
+- Verifique se existe `modelos/modelo_assinaturas_manuscritas.h5`
+- Execute o treinamento: `python scripts/treinar_modelo.py`
+
+---
+
+## 💡 **Melhorias Futuras**
+
+### **🔄 Performance**
+- [ ] Aumentar dataset (>20 assinaturas por pessoa)
+- [ ] Implementar transfer learning
+- [ ] Otimizar arquitetura da rede
+- [ ] Adicionar validação cruzada
+
+### **🌟 Features**
+- [ ] API REST para integração
+- [ ] Batch processing de múltiplas assinaturas
+- [ ] Dashboard de analytics
+- [ ] Exportar relatórios PDF
+
+### **🏗️ Infraestrutura**
+- [ ] Docker containerization
+- [ ] Deploy em cloud (AWS/GCP)
+- [ ] CI/CD pipeline
+- [ ] Monitoramento automático
+
+---
+
+## 🤝 **Contribuição**
+
+### **Como Contribuir**
+1. **Fork** o projeto
+2. Crie uma **branch** para sua feature (`git checkout -b feature/AmazingFeature`)
+3. **Commit** suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um **Pull Request**
+
+### **Reportar Bugs**
+- Use as **Issues** do GitHub
+- Inclua passos para reproduzir
+- Adicione logs e screenshots
+
+---
+
+## 📄 **Licença**
+
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+
+---
+
+## 👥 **Autores**
+
+- **Marcos Vinícius** - *Desenvolvimento Principal* - [@marcosviniciohd](https://github.com/marcosviniciohd)
+
+---
+
+## 🙏 **Agradecimentos**
+
+- IFTM - Instituto Federal do Triângulo Mineiro
+- Disciplina de Inteligência Computacional
+- Comunidade TensorFlow e Streamlit
+
+---
+
+## 📞 **Suporte**
+
+- **GitHub Issues**: [Reportar Bug](https://github.com/marcosviniciohd/reconhecimento-texto-manuscrito/issues)
+- **Documentação**: Consulte os arquivos `.md` no projeto
+- **Status**: ✅ Projeto ativo e funcional
+
+---
+
+<div align="center">
+
+**🎯 Sistema pronto para uso!**
+
+[![Status](https://img.shields.io/badge/Status-Funcional-brightgreen)]()
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)]()
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)]()
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.x-red)]()
+
+**Acesse http://localhost:8502 e teste o sistema!**
+
+</div>

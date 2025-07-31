@@ -1,6 +1,14 @@
-tensorflow
-numpy
-matplotlib
-opencv-python
-scikit-learn
-jupyter
+# Dependências principais para verificação de assinaturas manuscritas
+tensorflow>=2.8.0
+numpy>=1.21.0
+matplotlib>=3.5.0
+opencv-python>=4.5.0
+scikit-learn>=1.0.0
+jupyter>=1.0.0
+streamlit>=1.10.0
+
+# Para manipulação de imagens
+Pillow>=8.3.0
+
+# Para análise de dados (opcional)
+seaborn>=0.11.0
